@@ -1,13 +1,13 @@
 import java.util.OptionalInt;
 import java.util.Scanner;
 import java.util.Arrays;
-public class first {
-    public static double[] concatArray(double[] a, double[] b) {
+public class Rectangle {
+    public static int[] concatArray(int[] a, int[] b) {
         if (a == null)
             return b;
         if (b == null)
             return a;
-        double[] r = new double[a.length + b.length];
+        int[] r = new int[a.length + b.length];
         System.arraycopy(a, 0, r, 0, a.length);
         System.arraycopy(b, 0, r, a.length, b.length);
         return r;
@@ -27,29 +27,37 @@ public class first {
 
     public static int[] revers_int(int[] a) {
         int[] r = new int[a.length];
-        for (int i = 0; i < a.length; i++) {
-            if (i != 0 || i != a.length) {
-                System.out.print(i);
+        r[0] = a[a.length - 1 ];
+        for (int i = 1; i < a.length; i++) {
+            if (i != a.length - 1) {
                 r[i] = a[i];
             }
-        r[0] = a[a.length];
-        r[a.length] = a[a.length];
         }
+        r[a.length - 1] = a[0];
         return r;
     }
     public static void main(String[] args) {
-//        double[] first_1 = {345.45, 345.45,345.45};
-//        double[] first_2 = {345.45345, 3453455.45,34457565.45};
-//        System.out.print(concatArray(first_1, first_2));
-
-
+        int[] arrd = {1, 53, 413, 331, 756};
         int[] arr = {1, 5, 4, 3, 7};
-//      System.out.print(sum_int(arr))
-//      System.out.print(add_array(arr, 6));
-        revers_int(arr);
 
+        int[] c = concatArray(arrd, arr);
+        for (int i = 0; i < c.length; i++) {
+            System.out.print(c[i]);
+            System.out.print(" ");
+        }
+        System.out.println("\nnext");
+        
+        System.out.print(sum_int(arr));
+        
+        System.out.println("\nnext");
+        int[] b = add_array(arr, 6);
+        for (int i = 0; i < b.length; i++) {
+            System.out.print(b[i]);
+        }
+        System.out.println("\nnext");
+        int[] a = revers_int(arr);
+        for (int i = 0; i < a.length; i++) {
+            System.out.print(a[i]);
+        }
     }
 }
-
-
-
