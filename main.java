@@ -1,7 +1,8 @@
 import java.util.OptionalInt;
 import java.util.Scanner;
 import java.util.Arrays;
-public class Rectangle {
+public class first {
+
     public static int[] concatArray(int[] a, int[] b) {
         if (a == null)
             return b;
@@ -19,9 +20,11 @@ public class Rectangle {
         return raz;
     }
 
-    public static int[] add_array(int[] a, int b) {
+    public static int[] addInArray(int[] a, int b) {
         int[] r = new int[a.length + 1];
+        r[a.length] = b;
         System.arraycopy(a, 0, r, 0, a.length);
+
         return r;
     }
 
@@ -40,24 +43,44 @@ public class Rectangle {
         int[] arrd = {1, 53, 413, 331, 756};
         int[] arr = {1, 5, 4, 3, 7};
 
-        int[] c = concatArray(arrd, arr);
+
+        System.out.print("Есть два массива: arrd = {");
+        for (int i = 0; i < arrd.length; i++) {
+            System.out.print(arrd[i]);
+            if (i != arrd.length - 1) {System.out.print(", ");}
+        }
+        System.out.print("} arr = {");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i]);
+            if (i != arr.length - 1) {System.out.print(", ");}
+        }
+        int[] c = concatArray(arr, arrd);
+        System.out.print("}\nСоединение массивов: {");
         for (int i = 0; i < c.length; i++) {
             System.out.print(c[i]);
-            System.out.print(" ");
+            if (i != c.length - 1) {System.out.print(", ");}
         }
-        System.out.println("\nnext");
-        
+        System.out.print("}\nРазницу между самым большим и самым маленьким числом в массиве - ");
+
         System.out.print(sum_int(arr));
-        
-        System.out.println("\nnext");
-        int[] b = add_array(arr, 6);
+
+        System.out.print("\nДобавлять значения в массив старый массив arr = {");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i]);
+            if (i != arr.length - 1) {System.out.print(", ");}
+        }
+        System.out.print("} новый {");
+        int[] b = addInArray(arr, 5);
         for (int i = 0; i < b.length; i++) {
             System.out.print(b[i]);
+            if (i != b.length - 1) {System.out.print(", ");}
         }
-        System.out.println("\nnext");
+        System.out.print("}\nСмена первого и последнего элемента arr = {");
         int[] a = revers_int(arr);
         for (int i = 0; i < a.length; i++) {
             System.out.print(a[i]);
+            if (i != a.length - 1) {System.out.print(", ");}
         }
+        System.out.print("}");
     }
 }
