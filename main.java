@@ -28,6 +28,13 @@ public class first {
         return r;
     }
 
+    public static double sum_squares_massiv(int[] a) {
+        int sum_array = Arrays.stream(a).sum();
+        double r = Math.pow(sum_array, 2);
+        return r;
+    }
+
+
     public static int[] revers_int(int[] a) {
         int[] r = new int[a.length];
         r[0] = a[a.length - 1 ];
@@ -42,8 +49,8 @@ public class first {
     public static void main(String[] args) {
         int[] arrd = {1, 53, 413, 331, 756};
         int[] arr = {1, 5, 4, 3, 7};
-
-
+        System.out.print("Сумма квадратов массива arrd = ");
+        System.out.println(sum_squares_massiv(arrd));
         System.out.print("Есть два массива: arrd = {");
         for (int i = 0; i < arrd.length; i++) {
             System.out.print(arrd[i]);
@@ -75,12 +82,12 @@ public class first {
             System.out.print(b[i]);
             if (i != b.length - 1) {System.out.print(", ");}
         }
-        System.out.print("}\nСмена первого и последнего элемента arr = {");
-        int[] a = revers_int(arr);
+        System.out.print("}\nСмена первого и последнего элемента arrd = {");
+        int[] a = revers_int(arrd);
         for (int i = 0; i < a.length; i++) {
             System.out.print(a[i]);
             if (i != a.length - 1) {System.out.print(", ");}
         }
-        System.out.print("}");
+//        System.out.print("}");
     }
 }
