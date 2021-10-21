@@ -99,9 +99,6 @@ class HubList<E> implements HubListImpl<E>{
     public void sort(Comparator<? super E> c) {
         for(int i = elem.length-1 ; i > 0 ; i--){
             for(int j = 0 ; j < i ; j++){
-            /*Сравниваем элементы попарно,
-              если они имеют неправильный порядок,
-              то меняем местами*/
                 if(c.compare(elem[j], elem[j+1]) > 0) {
                     E tmp = elem[j];
                     elem[j] = elem[j+1];
