@@ -1,7 +1,7 @@
 import java.util.OptionalInt;
 import java.util.Scanner;
 import java.util.Arrays;
-public class first {
+public class Rectangle {
 
     public static int[] concatArray(int[] a, int[] b) {
         if (a == null)
@@ -37,14 +37,13 @@ public class first {
 
     public static int[] revers_int(int[] a) {
         int[] r = new int[a.length];
-        r[0] = a[a.length - 1 ];
-        for (int i = 1; i < a.length; i++) {
-            if (i != a.length - 1) {
-                r[i] = a[i];
-            }
-        }
-        r[a.length - 1] = a[0];
-        return r;
+        int start = 0;
+        int fin = 0;
+        a[0] = start;
+        a[a.length-1] = fin;
+        a[0] = fin;
+        a[a.length-1] = start;
+        return a;
     }
     public static void main(String[] args) {
         int[] arrd = {1, 53, 413, 331, 756};
