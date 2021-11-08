@@ -1,21 +1,21 @@
-
 import java.util.regex.*;
+
 public class first {
     public static void main(String[] args) {
         Auth pety = new Auth();
         Coder code = new Coder();
-        pety.fillLogin("hopes916@mail.com",code);
+        pety.fillLogin("hopes916@mail.com", code);
 
 
         String polsovatel = "asd0";
         System.out.println(pety.sendCode(code, polsovatel));
 
 
-
 //        pety.checkCode(12312);
     }
 
 }
+
 class Auth {
     String phone;
     String email;
@@ -24,11 +24,11 @@ class Auth {
     void fillLogin(String login, Coder n) {
         Pattern p = Pattern.compile("\\w*@\\w*.\\w*");
         Matcher pattern = p.matcher(login);
-        if (pattern.matches() == true){
+        if (pattern.matches() == true) {
             this.email = login;
             System.out.println("Yes email");
             n.sendCode();
-        }else if (pattern.matches() == false) {
+        } else if (pattern.matches() == false) {
             Pattern num = Pattern.compile("\\+\\d{1,12}");
             Matcher pa = num.matcher(login);
             n.sendCode();
@@ -36,30 +36,10 @@ class Auth {
                 this.phone = login;
 
                 System.out.println("Yes number");
-            }else {
+            } else {
                 System.out.println("Error");
             }
-        }else {
+        } else {
             System.out.println("error");
         }
     }
-
-    boolean sendCode(Coder n, String m) {
-        return n.checkCode(m);
-    }
-}
-class Coder {
-    String secret_code;
-    void sendCode() {
-        int v = (int) Math.random() * 10000;
-        this.secret_code = "asd" + v;
-        System.out.println(this.secret_code);
-    }
-    boolean checkCode(String code) {
-        if (secret_code.equals(code)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-}
