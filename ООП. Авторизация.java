@@ -1,48 +1,65 @@
-public class Rectangle {
-    public static void main(String[] args) {
 
+import java.util.regex.*;
+public class first {
+    public static void main(String[] args) {
+        Auth pety = new Auth();
+        Coder code = new Coder();
+        pety.fillLogin("hopes916@mail.com",code);
+
+
+        String polsovatel = "asd0";
+        System.out.println(pety.sendCode(code, polsovatel));
+
+
+
+//        pety.checkCode(12312);
     }
+
 }
 class Auth {
-    int phone;
+    String phone;
     String email;
     String code;
 
-    void fillLogin(String login) {
+    void fillLogin(String login, Coder n) {
+        Pattern p = Pattern.compile("\\w*@\\w*.\\w*");
+        Matcher pattern = p.matcher(login);
+        if (pattern.matches() == true){
+            this.email = login;
+            System.out.println("Yes email");
+            n.sendCode();
+        }else if (pattern.matches() == false) {
+            Pattern num = Pattern.compile("\\+\\d{1,12}");
+            Matcher pa = num.matcher(login);
+            n.sendCode();
+            if (pa.matches() == true) {
+                this.phone = login;
 
-    }
-
-    void sendCode() {
-        new Coder().sendCode();
-
-    }
-
-    boolean checkCode(String code) {
-        if (code.length() < 6) {
-            return false;
-        } else {
-            if (new Coder().checkCode(this.code)) {
-                return true;
-            } else {
-                return false;
+                System.out.println("Yes number");
+            }else {
+                System.out.println("Error");
             }
+        }else {
+            System.out.println("error");
         }
+    }
+
+    boolean sendCode(Coder n, String m) {
+        return n.checkCode(m);
     }
 }
 class Coder {
     String secret_code;
     void sendCode() {
-        int v = (int) Math.random() * 1000;
-
+        int v = (int) Math.random() * 10000;
+        this.secret_code = "asd" + v;
+        System.out.println(this.secret_code);
     }
-
     boolean checkCode(String code) {
-        if (code.equals(secret_code)) {
+        if (secret_code.equals(code)) {
             return true;
         } else {
             return false;
         }
     }
 }
-
-
