@@ -44,7 +44,7 @@ public class Rectangle{
                 } else if (isNumber(va)){
                     Integer nubmer = Character.getNumericValue(va.toCharArray()[0]);
                     if (nubmer > 5 || nubmer < 0){
-                        map.computeIfPresent((String)vg.toArray()[i], (k, v) -> v = Character.getNumericValue(va.toCharArray()[0]));
+                        map.computeIfPresent((String)vg.toArray()[i], (k, v) -> v = nubmer);
                     }
                 }
             }
