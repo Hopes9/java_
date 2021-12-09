@@ -53,3 +53,91 @@ public class Rectangle{
 }
 
 
+
+
+
+
+
+
+
+import java.util.*;
+
+public class Rectangle {
+
+    public static void main(String[] args) {
+        Cards cards = new Cards();
+//        cards.retur();
+        Scanner scan = new Scanner(System.in);
+        while (true) {
+            Object card = cards.return_one_card();
+            System.out.println("Забрать или нет? " + card);
+            if (cards.count > 21) {
+                System.out.println("you lose");
+                break;
+            }
+            String str = scan.next();
+            if (str.equals("y")) {
+                int name_card = cards.retu().get(card.toString());
+                cards.add_count(name_card);
+            } else if (str.equals("n")) {
+                if (cards.count == 21) {
+                    System.out.println("you WIN");
+                    break;
+                }
+                System.out.println("you lose");
+                break;
+            }
+            System.out.println("Сумма " + cards.count);
+        }
+    }
+}
+
+class Cards {
+    public HashMap<String, Integer> cards;
+    public List<String> coloda;
+    public Integer count = 0;
+
+    Cards() {
+        this.cards = new HashMap<>();
+        this.cards.put("2", 2);
+        this.cards.put("3", 3);
+        this.cards.put("4", 4);
+        this.cards.put("5", 5);
+        this.cards.put("6", 6);
+        this.cards.put("7", 7);
+        this.cards.put("8", 8);
+        this.cards.put("9", 9);
+        this.cards.put("10", 10);
+        this.cards.put("Jack", 3);
+        this.cards.put("Queen", 4);
+        this.cards.put("King", 5);
+
+        List<String> shuf = new ArrayList<String>(this.cards.keySet());
+        List<String> sec = new ArrayList<String>(this.cards.keySet());
+
+        shuf.addAll(sec);
+        Collections.shuffle(shuf);
+        this.coloda = shuf;
+
+    }
+    void retur() {
+        System.out.println(this.coloda);
+        System.out.println(this.cards);
+    }
+
+    HashMap<String, Integer> retu() {
+        return this.cards;
+    }
+
+    Object return_one_card() {
+        int x = (int) (Math.random() * ((coloda.size() - 1) + 1));
+        Object card = this.coloda.get(x);
+        return card;
+
+    }
+
+    void add_count(int index) {
+        this.count += index;
+    }
+}
+
