@@ -6,9 +6,9 @@ public class Main {
         SmartPhone samsung = new SmartPhone(10, 0, 300);
 
         System.out.println(Phone.class);
-        Class<Phone> taskOneClass = Phone.class;
-        final Method[] methods = taskOneClass.getDeclaredMethods();
-        final Field[] fields = taskOneClass.getDeclaredFields();
+        Class<Phone> classes = Phone.class;
+        final Method[] methods = classes.getDeclaredMethods();
+        final Field[] fields = classes.getDeclaredFields();
 
         for (Field field : fields) {
             System.out.println(field);
